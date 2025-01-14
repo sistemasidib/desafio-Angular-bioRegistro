@@ -1,59 +1,77 @@
-# DesafioAngular
+# Desafio Angular - Desenvolvedor Júnior/Pleno
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
+Este repositório contém um desafio técnico para a vaga de Desenvolvedor Angular Júnior/Pleno. O objetivo deste desafio é avaliar as habilidades em desenvolvimento frontend, boas práticas de código, e capacidade de realizar o deploy de uma aplicação web.
 
-## Development server
+## 🏆 Objetivo do Desafio
 
-To start a local development server, run:
+Desenvolver uma aplicação web em Angular que permita:
+- Criar, atualizar, listar e excluir registros de uma entidade (ex: Tarefas, Produtos, Usuários).
+- Implementar autenticação básica (JWT).
+- Realizar consumo de uma API REST.
 
+### Requisitos Técnicos (Obrigatórios):
+- **Utilizar Angular 18 (obrigatório)**, com as novas features como **Angular Signals** e o padrão **Standalone Components**.
+- Utilizar TypeScript e seguir boas práticas de desenvolvimento.
+- Implementar tratamento de erros e validações.
+
+### Extras (Diferenciais):
+- Implementar lazy loading.
+- Utilizar bibliotecas de componentes (ex: Angular Material, PrimeNG).
+- Implementar paginação e filtros.
+
+## 📦 Como Executar o Projeto Localmente
+
+Para rodar a aplicação em ambiente local:
+
+1. **Clone o Repositório:**
+```bash
+git clone https://github.com/seu-repositorio.git
+```
+2. **Instalar Dependências:**
+```bash
+npm install
+```
+3. **Executar a Aplicação:**
 ```bash
 ng serve
 ```
+4. **Acessar a Aplicação:**
+   - A aplicação estará disponível em `http://localhost:4200`.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🚀 Deploy usando Docker e NGINX
 
-## Code scaffolding
+### Configuração Docker
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+1. **Construção da Imagem:**
 ```bash
-ng generate component component-name
+docker build -t minha-app-angular .
+```
+2. **Executar o Container:**
+```bash
+docker run -d -p 80:80 --name minha-app-angular minha-app-angular
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Configuração NGINX (Proxy Reverso)
 
-```bash
-ng generate --help
+```nginx
+server {
+    listen 80;
+    server_name app.meudominio.com;
+
+    location / {
+        root /usr/share/nginx/html;
+        index index.html;
+        try_files $uri /index.html;
+    }
+}
 ```
 
-## Building
+## ✅ Critérios de Avaliação
+- Utilização obrigatória do **Angular 18** com **Signals** e **Standalone Components**.
+- Qualidade do código (organização, boas práticas, padrões de projeto).
+- Clareza na documentação.
+- Implementação de boas práticas de segurança.
+- Capacidade de configurar o ambiente de deploy (Docker e NGINX).
 
-To build the project run:
+Boa sorte e sucesso no desafio!
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
