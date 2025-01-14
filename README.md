@@ -25,7 +25,7 @@ Para rodar a aplicação em ambiente local:
 
 1. **Clone o Repositório:**
 ```bash
-git clone https://github.com/seu-repositorio.git
+git clone https://github.com/sistemasidib/desafio-Angular-bioRegistro.git
 ```
 2. **Instalar Dependências:**
 ```bash
